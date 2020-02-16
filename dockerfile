@@ -8,7 +8,7 @@ RUN npm run build
 
 # production stage
 FROM node:lts-alpine AS production-stage
-COPY --from=build-stage /app/dist
+COPY --from=build-stage /app/dist /app/dist
 
 EXPOSE 3000
 
