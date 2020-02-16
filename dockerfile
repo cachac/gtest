@@ -1,11 +1,13 @@
-FROM node:lts-alpine as build-stage
-
+# build stage
+FROM mhart/alpine-node:12 as build-stage
 WORKDIR /app
-
 COPY package*.json ./
-
 RUN npm ci --only=production --loglevel verbose
 
+FROM mhart/alpine-node:slim-12
+WORKDIR /app
+
+COPY --from=build-stage /app .
 COPY . .
 
 EXPOSE 3000
