@@ -1,13 +1,14 @@
+# build stage
 FROM node:lts-alpine as build-stage
-
 WORKDIR /app
-
 COPY package*.json ./
-
-RUN apk --no-cache add --virtual builds-deps build-base python
 RUN npm ci --only=production --loglevel verbose
-
 COPY . .
+RUN npm run build
+
+# production stage
+FROM node:lts-alpine AS production-stage
+COPY --from=build-stage /app/dist
 
 EXPOSE 3000
 
