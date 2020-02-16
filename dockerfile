@@ -18,4 +18,4 @@ RUN if [ "$NODE_ENV" = "production" ] ; then  echo YOU ARE READY FOR $NODE_ENV !
 else echo $NODE_ENV environment; \
 fi 
 
-CMD ["npm", "start"]
+CMD ["node", "src/main.js"]
