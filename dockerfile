@@ -23,6 +23,6 @@ ENV NODE_ENV=${NODE_ENV}
 
 RUN echo $APP_NAME v$APP_VERSION in $NODE_ENV on port $NODE_PORT 
 
-EXPOSE $NODE_ENV
+EXPOSE $NODE_PORT
 
 CMD ["node", "src/main.js"]
