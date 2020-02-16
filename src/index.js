@@ -2,7 +2,7 @@ const express = require ('express')
 
 const router = express.Router()
 
-const custom = 'yaml!2'
+const custom = 'yaml!3'
 
 router.get('/info', (req, res) => {
   console.log('> get info');
