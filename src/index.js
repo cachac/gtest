@@ -2,7 +2,7 @@ const express = require ('express')
 
 const router = express.Router()
 
-const custom = 'yaml! listo para dos ambientes'
+const custom = 'yaml! build args'
 
 router.get('/info', (req, res) => {
   console.log('> get info');
