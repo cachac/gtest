@@ -4,6 +4,7 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm ci --only=production --loglevel verbose
 
+# release stage
 FROM mhart/alpine-node:slim-12
 WORKDIR /app
 
