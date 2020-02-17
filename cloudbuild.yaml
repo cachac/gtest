@@ -1,7 +1,7 @@
 steps:
   # build the container image
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'gcr.io/$PROJECT_ID/gtestqa:$COMMIT_SHA', '.']
+    args: ['build','-t', 'gcr.io/$PROJECT_ID/gtestqa:$COMMIT_SHA', '.']
   # push the container image to Container Registry
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'gcr.io/$PROJECT_ID/gtestqa:$COMMIT_SHA']
@@ -17,20 +17,3 @@ steps:
     - 'us-central1'
     - '--platform'
     - 'managed'
-  #   images:
-  # - 'gcr.io/$PROJECT_ID/gtestqa:$COMMIT_SHA'
-  # ports:
-  #   - containerPort: 3000
-  #   env:
-  #   - name: APP_NAME
-  #     value: gtest
-  #   - name: APP_VERSION
-  #     value: '0.2'
-  #   - name: NODE_PORT
-  #     value: '3000'
-  #   - name: NODE_ENV
-  #     value: qa
-  #   resources:
-  #     limits:
-  #       cpu: 1000m
-  #       memory: 128Mi
